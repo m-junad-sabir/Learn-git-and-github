@@ -10,3 +10,4 @@ To-Do List:
 8.  Learn to Code and Build a Project
 9.  Learn to Build a Website
 10. Learn to Build a Mobile App
+11. I am learning git and GitHub for CI CD 
