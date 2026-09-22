@@ -125,3 +125,53 @@ You’re setting up on a new PC						git clone
 To List all Commits and Copy the Commit Hash:
 
 git log --oneline
+
+
+I'll help you resolve this PAT (Personal Access Token) issue. Let me search for the official GitHub documentation on this.This is the correct behavior—GitHub now requires a **Personal Access Token (PAT)** instead of your account password for Git operations over HTTPS. Here's how to set it up:
+
+## Create a Personal Access Token
+
+1. Go to your GitHub settings: Click your profile picture → **Settings**
+2. In the left sidebar, click **Developer settings** (or code icon)
+3. Click **Personal access tokens** → **Tokens (classic)**
+4. Click **Generate new token** → **Generate new token (classic)**
+5. Give it a descriptive name (e.g., "VS Code" or "Terminal Access")
+6. Select an expiration date (or leave it default)
+7. Select the **repo** scope (this allows access to repositories)
+8. Click **Generate token** and **copy it immediately** (you won't see it again!)
+
+## Use the Token in Terminal/VS Code
+
+When Git prompts you for credentials:
+
+```bash
+$ git clone https://github.com/USERNAME/REPO.git
+Username: your-github-username
+Password: your-personal-access-token  # Paste the token here
+```
+
+## Skip Repeated Prompts (Recommended)
+
+Instead of entering credentials every time, **cache your credentials** so Git remembers them:
+
+```bash
+git config --global credential.helper cache
+# (On macOS, use: git credential-osxkeychain)
+# (On Windows, use: wincred)
+```
+
+Or use [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager), which handles this automatically.
+
+---
+
+**For your friend:** They'll need to create their own PAT using the same steps above. Each person should use their own account and token—never share PATs!
+
+Would you like help configuring this for a specific tool (VS Code, terminal, etc.)?
+
+## Change the last commit message (most common)
+
+If you just made a commit and want to edit its message:
+
+```git commit --amend -m "New commit message"```
+
+This rewrites the last commit with the new message.
